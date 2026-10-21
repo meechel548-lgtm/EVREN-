@@ -515,3 +515,29 @@ window.addEventListener('scroll', () => {
     window.requestAnimationFrame(moveScene);
     ticking = true;
   }
+
+});
+
+window.addEventListener('resize', moveScene);
+moveScene();
+
+const contactForm = document.getElementById('contactForm');
+
+contactForm.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById('name').value.trim();
+  const topic = document.getElementById('topic').value;
+  const message = document.getElementById('message').value.trim();
+
+  const text = `Merhaba EVREN, ben ${name}.
+Hizmet: ${topic}
+Proje detayları: ${message}`;
+
+  const url = 'https://wa.me/905301224250?text=' + encodeURIComponent(text);
+
+  window.open(url, '_blank');
+});
+</script>
+</body>
+</html>
